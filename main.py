@@ -26,7 +26,7 @@ class CheckForSyllabus():
 
     def syllabus_in_rostersplus(self):
 
-        syllabus = driver.find_element_by_xpath('//*[@id="Syllabus_form"]/a').click()
+        syllabus = driver.find_element(By.XPATH, '//*[@id="Syllabus_form"]/a').click()
 
         # This waits until syllabus upload page loads
         element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'DownloadRoster_form')))
@@ -95,15 +95,15 @@ text = "Allow the Computer to Login to your RostersPlus Account"
 title = "RostersPlus Login"
 fields = ['Username', 'Password']
 output = multpasswordbox(text, title, fields)
-login = driver.find_element_by_name('login')
+login = driver.find_element(By.NAME, 'login')
 # username = input('Enter your username: ')
 login.send_keys(output[0])
 print(output[0])
 # df.to_csv('C:/Users/' + output[0] + '/Desktop/RostersPlus_Review.csv')
-login = driver.find_element_by_name('passwd')
+login = driver.find_element(By.NAME, 'passwd')
 # password = input('Enter your password: ')
 login.send_keys(output[1])
-button = driver.find_element_by_xpath('//*[@id="login_form"]/table/tbody/tr[3]/td[2]/input').click()
+button = driver.find_element(By.XPATH, '//*[@id="login_form"]/table/tbody/tr[3]/td[2]/input').click()
 # This waits for list of courses to load
 element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'clform')))
 session = driver.find_element(By.XPATH, 'html/body/table[2]/tbody/tr/td[2]/form[1]/p/select/option[1]').click()
